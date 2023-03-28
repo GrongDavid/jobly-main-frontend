@@ -6,9 +6,11 @@ function CompanyList({ companies, alone = true }) {
 		return companies.map((company) => (
 			<li key={company.handle} className={alone ? 'lone-list' : 'list'}>
 				<NavLink to={`/companies/${company.handle}`}>
-					{company.name} <br />
+					<h4>{company.name}</h4>
 					<br /> {company.description} <br />
-					<br /> Employee Count: {company.numEmployees}
+					<h5>
+						<br /> Employee Count: {company.numEmployees}
+					</h5>
 				</NavLink>
 			</li>
 		))

@@ -23,7 +23,7 @@ function JobCard({
 	return (
 		<div>
 			<div className='JobCard card'>
-				{title} <br />
+				<h5>{title}</h5>
 				{companyName}
 				<br /> Salary: {salary ? salary : 'N/A'}
 				<br /> Equity: {equity ? equity : 'N/A'}

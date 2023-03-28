@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001'
+console.log(BASE_URL)
 
 /** API Class.
  *
@@ -37,47 +38,65 @@ class JoblyApi {
 	/** Get details on a company by handle. */
 
 	static async getCompany(handle) {
-		let res = await this.request(`companies/${handle}`)
-		return res.company
+		try {
+			let res = await this.request(`companies/${handle}`)
+			return res.company
+		} catch (error) {}
 	}
 
 	static async getCompanies(name) {
-		let res = await this.request('companies', { name })
-		return res.companies
+		try {
+			let res = await this.request('companies', { name })
+			return res.companies
+		} catch (error) {}
 	}
 
 	static async getUser(username) {
-		let res = await this.request(`users/${username}`)
-		return res.user
+		try {
+			let res = await this.request(`users/${username}`)
+			return res.user
+		} catch (error) {}
 	}
 
 	static async getJobs(jobTitle) {
-		let res = await this.request('jobs', { jobTitle })
-		return res.jobs
+		try {
+			let res = await this.request('jobs', { jobTitle })
+			return res.jobs
+		} catch (error) {}
 	}
 
 	static async getJob(id) {
-		let res = await this.request(`jobs/${id}`)
-		return res.job
+		try {
+			let res = await this.request(`jobs/${id}`)
+			return res.job
+		} catch (error) {}
 	}
 
 	static async apply(username, id) {
-		await this.request(`users/${username}/jobs/${id}`, {}, 'post')
+		try {
+			await this.request(`users/${username}/jobs/${id}`, {}, 'post')
+		} catch (error) {}
 	}
 
 	static async login(data) {
-		let res = await this.request('auth/token', data, 'post')
-		return res.token
+		try {
+			let res = await this.request('auth/token', data, 'post')
+			return res.token
+		} catch (error) {}
 	}
 
 	static async signup(data) {
-		let res = await this.request('auth/register', data, 'post')
-		return res.token
+		try {
+			let res = await this.request('auth/register', data, 'post')
+			return res.token
+		} catch (error) {}
 	}
 
 	static async saveProfile(username, data) {
-		let res = await this.request(`users/${username}`, data, 'patch')
-		return res.user
+		try {
+			let res = await this.request(`users/${username}`, data, 'patch')
+			return res.user
+		} catch (error) {}
 	}
 }
 

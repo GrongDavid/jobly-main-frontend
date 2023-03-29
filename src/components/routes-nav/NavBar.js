@@ -1,7 +1,20 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { React, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 function NavBar({ logout, curUser }) {
+	const [searchData, setSearchData] = useState('')
+	const navigate = useNavigate()
+
+	function handleChange(e) {
+		const { value } = e.target
+		setSearchData(value)
+	}
+
+	async function handleSubmit(e) {
+		e.preventDefault()
+		navigate(`/search/${searchData}`)
+		setSearchData('')
+	}
 	return (
 		<nav
 			className='navbar navbar-expand-lg bg-body-tertiary sticky-top bg-white'
@@ -23,12 +36,14 @@ function NavBar({ logout, curUser }) {
 							<form
 								className='d-flex form-outline-success justify-content-end'
 								role='search'
+								onSubmit={handleSubmit}
 							>
 								<input
 									className='form-control me-2 form-outline-success'
 									type='search'
 									placeholder='Search'
 									aria-label='Search'
+									onChange={handleChange}
 								/>
 								<button
 									className='btn btn-outline-success bg-white'

@@ -58,9 +58,9 @@ class JoblyApi {
 		} catch (error) {}
 	}
 
-	static async getJobs(jobTitle) {
+	static async getJobs(title) {
 		try {
-			let res = await this.request('jobs', { jobTitle })
+			let res = await this.request('jobs', { title })
 			return res.jobs
 		} catch (error) {}
 	}

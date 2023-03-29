@@ -7,6 +7,7 @@ import Home from '../home/Home'
 import Signup from '../auth/Signup'
 import Login from '../auth/Login'
 import ApplicationList from '../profile/ApplicationList'
+import Search from '../search/Search'
 
 function JoblyRoutes({
 	jobs,
@@ -59,6 +60,12 @@ function JoblyRoutes({
 								/>
 							}
 						/>
+						<Route
+							path='/search/:search'
+							element={
+								<Search apply={apply} applications={curUser.applications} />
+							}
+						></Route>
 						<Route path='/' element={<Home curUser={curUser} />} />
 					</>
 				) : (

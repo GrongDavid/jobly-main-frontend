@@ -42,7 +42,6 @@ function App() {
 
 	useEffect(() => {
 		async function getCurUser() {
-			console.log(userToken)
 			if (userToken) {
 				try {
 					let { username } = decode(userToken)
@@ -71,7 +70,6 @@ function App() {
 		setApplicationIds(new Set([]))
 		setCurUser({ data: null })
 		setUserToken(null)
-		console.log(userToken)
 	}
 
 	async function login(data) {
@@ -86,9 +84,8 @@ function App() {
 			JoblyApi.apply(curUser.data.username, id)
 			setApplicationIds(new Set([...applicationIds, id]))
 		}
-		console.log('here')
 	}
-	console.log(curUser)
+
 	return (
 		<div className='App'>
 			<NavBar logout={logout} curUser={curUser.data} />

@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 function Home({ curUser = null }) {
-	console.log(curUser)
 	return (
 		<div className='Home d-flex justify-content-center align-items-center'>
 			<div>

@@ -17,16 +17,14 @@ function CompanyList({ companies, alone = true }) {
 	}
 
 	return (
-		<div className='CompanyList'>
+		<div className='CompanyList container'>
 			<div align='center'>
 				<NavLink to='/companies' className='list-title-link fw-bold'>
 					<h1 className='list-title fw-bold gradient'>Companies</h1>
 				</NavLink>
 			</div>
-			<div className='row'>
-				<div className='col' align='center'>
-					<ul>{listCompanies()}</ul>
-				</div>
+			<div className='container' align='center'>
+				<ul>{listCompanies()}</ul>
 			</div>
 		</div>
 	)

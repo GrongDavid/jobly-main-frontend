@@ -16,7 +16,6 @@ li {
 
 .lone-list {
   margin-bottom: 1rem;
-  width: 75rem;
     list-style-type: none;
     height: 20rem;
     block-size: fit-content;
@@ -47,6 +46,7 @@ li {
 
 li {
   list-style-type: none;
+  max-width: 2000px;
 }
 
 a {
